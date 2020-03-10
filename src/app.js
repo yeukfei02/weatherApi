@@ -26,7 +26,7 @@ if (environment === 'development') {
   // );
 
   // docker local mongodb
-  // mongoose.connect('mongodb://mongo:27017/weather', { useNewUrlParser: true, useUnifiedTopology: true });
+  mongoose.connect('mongodb://mongo:27017/weather', { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
 app.use(cors());
