@@ -21,18 +21,18 @@ module.exports.getWeather = async (req, res) => {
             await addWeatherToDB(result.data);
             res.status(200).json({
               message: 'getWeather success',
-              result: result.data
+              result: result.data,
             });
           } else {
             res.status(200).json({
               message: 'getWeather success',
-              result: weatherFromDB
+              result: weatherFromDB,
             });
           }
         } else {
           res.status(200).json({
             message: 'getWeather success',
-            result: []
+            result: [],
           });
         }
       }
@@ -46,7 +46,7 @@ module.exports.getWeather = async (req, res) => {
       message: 'getWeather error, please add bearer token',
     });
   }
-}
+};
 
 async function getWeatherFromDBById(id) {
   const weather = await Weather.findOne({ id: id });
@@ -76,18 +76,15 @@ async function addWeatherToDB(data) {
 }
 
 async function getWeather(cityName) {
-  const result = await axios.get(
-    `https://api.openweathermap.org/data/2.5/weather`,
-    {
-      params: {
-        q: cityName,
-        appid: process.env.OPEN_WEATHER_API_KEY
-      },
-      headers: {
-        'Content-type': 'application/json'
-      }
-    }
-  );
+  const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
+    params: {
+      q: cityName,
+      appid: process.env.OPEN_WEATHER_API_KEY,
+    },
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
 
   return result;
 }

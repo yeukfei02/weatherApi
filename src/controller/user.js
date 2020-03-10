@@ -15,26 +15,26 @@ module.exports.signup = async (req, res) => {
       const user = User({
         _id: mongoose.Types.ObjectId(),
         email: email,
-        password: bcrypt.hashSync(password, 10)
+        password: bcrypt.hashSync(password, 10),
       });
 
       const result = await user.save();
       if (!_.isEmpty(result)) {
         res.status(201).json({
-          message: 'signup success'
+          message: 'signup success',
         });
       } else {
         res.status(400).json({
-          message: 'signup error'
+          message: 'signup error',
         });
       }
     } else {
       res.status(400).json({
-        message: 'signup error, email already exists'
+        message: 'signup error, email already exists',
       });
     }
   }
-}
+};
 
 module.exports.login = async (req, res) => {
   const email = req.body.email;
@@ -45,24 +45,27 @@ module.exports.login = async (req, res) => {
     if (!_.isEmpty(user)) {
       const userPasswordFromDB = user.password;
       if (bcrypt.compareSync(password, userPasswordFromDB)) {
-        const token = jwt.sign({
-          email: email,
-          password: password
-        }, process.env.JWT_SECRET);
+        const token = jwt.sign(
+          {
+            email: email,
+            password: password,
+          },
+          process.env.JWT_SECRET,
+        );
 
         res.status(201).json({
           message: 'login success',
-          token: token
+          token: token,
         });
       } else {
         res.status(400).json({
-          message: 'login error, password is not correct'
+          message: 'login error, password is not correct',
         });
       }
     } else {
       res.status(400).json({
-        message: 'login error, cannot find user by email'
+        message: 'login error, cannot find user by email',
       });
     }
   }
-}
+};
