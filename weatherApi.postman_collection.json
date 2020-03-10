@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "c8de10a0-ef97-4dec-866a-b7e623131a50",
+		"name": "weatherApi",
+		"description": "weatherApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "/user/signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"signup"
+							]
+						},
+						"description": "/user/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "/user/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						},
+						"description": "/user/login"
+					},
+					"response": []
+				}
+			],
+			"description": "user",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "weather",
+			"item": [
+				{
+					"name": "/weather/get-weather",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE1ODM4NDMwODV9.m47CFgXQFUl1bWJyTfwBko5__dsfRnhoQJEpkKY4cNU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/weather/get-weather?cityName=hong kong",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"weather",
+								"get-weather"
+							],
+							"query": [
+								{
+									"key": "cityName",
+									"value": "hong kong"
+								}
+							]
+						},
+						"description": "/weather/get-weather"
+					},
+					"response": []
+				}
+			],
+			"description": "weather",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

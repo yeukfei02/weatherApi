@@ -1,9 +1,15 @@
-const weatherController = require('../controller/weather');
+const weather = require('./weather');
 
 describe('main.test', () => {
   describe('weather', () => {
-    test('getWeather', () => {
-      expect(123).toBeDefined();
+    test('getWeather', async () => {
+      try {
+        const result = await weather.getWeather('Hong Kong');
+        expect(result).toBeDefined();
+        expect(result.data).toBeDefined();
+      } catch (e) {
+        console.log(`error = ${e.message}`);
+      }
     });
   });
 });
