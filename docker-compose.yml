@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: weatherApi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+    links:
+      - db
+  db:
+    container_name: mongo
+    image: mongo:4.2
+    ports:
+      - 27017:27017
