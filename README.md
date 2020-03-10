@@ -1,6 +1,6 @@
 # weatherApi
 
-weatherApi
+weatherApi by openweathermap
 
 ## Requirement:
  - install yarn
