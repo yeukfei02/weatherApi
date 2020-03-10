@@ -48,7 +48,7 @@ module.exports.login = async (req, res) => {
         const token = jwt.sign({
           email: email,
           password: password
-        }, 'secret');
+        }, process.env.JWT_SECRET);
 
         res.status(201).json({
           message: 'login success',
