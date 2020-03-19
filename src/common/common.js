@@ -24,4 +24,4 @@ module.exports.checkUserLogin = (req, res) => {
   }
 
   return result;
-}
+};
