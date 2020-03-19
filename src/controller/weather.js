@@ -1,50 +1,37 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const axios = require('axios');
-const jwt = require('jsonwebtoken');
 
+const common = require('../common/common');
 const Weather = require('../model/weather');
 
 module.exports.getWeather = async (req, res) => {
   const cityName = req.query.cityName;
-  const token = !_.isEmpty(req.headers.authorization) ? req.headers.authorization.substring(7).trim() : '';
 
+  const token = common.checkUserLogin(req, res);
   if (!_.isEmpty(token)) {
-    try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      if (!_.isEmpty(decoded)) {
-        const result = await getWeather(cityName, token);
-        if (!_.isEmpty(result)) {
-          const resultId = result.data.id;
-          const weatherFromDB = await getWeatherFromDBById(resultId);
-          if (_.isEmpty(weatherFromDB)) {
-            await addWeatherToDB(result.data);
-            res.status(200).json({
-              message: 'getWeather success',
-              result: result.data,
-            });
-          } else {
-            res.status(200).json({
-              message: 'getWeather success',
-              result: weatherFromDB,
-            });
-          }
-        } else {
-          res.status(200).json({
-            message: 'getWeather success',
-            result: [],
-          });
-        }
+    const result = await getWeather(cityName, token);
+    if (!_.isEmpty(result)) {
+      const resultId = result.data.id;
+      const weatherFromDB = await getWeatherFromDBById(resultId);
+      if (_.isEmpty(weatherFromDB)) {
+        await addWeatherToDB(result.data);
+        res.status(200).json({
+          message: 'getWeather success',
+          result: result.data,
+        });
+      } else {
+        res.status(200).json({
+          message: 'getWeather success',
+          result: weatherFromDB,
+        });
       }
-    } catch (e) {
-      res.status(400).json({
-        message: `getWeather error, error = ${e.message}`,
+    } else {
+      res.status(200).json({
+        message: 'getWeather success',
+        result: [],
       });
     }
-  } else {
-    res.status(400).json({
-      message: 'getWeather error, please add bearer token',
-    });
   }
 };
 
