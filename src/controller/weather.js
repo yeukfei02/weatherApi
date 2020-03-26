@@ -8,9 +8,9 @@ const Weather = require('../model/weather');
 module.exports.getWeather = async (req, res) => {
   const cityName = req.query.cityName;
 
-  const token = common.checkUserLogin(req, res);
-  if (!_.isEmpty(token)) {
-    const result = await getWeather(cityName, token);
+  const userLoginStatus = common.checkUserLogin(req, res);
+  if (userLoginStatus) {
+    const result = await getWeather(cityName);
     if (!_.isEmpty(result)) {
       const resultId = result.data.id;
       const weatherFromDB = await getWeatherFromDBById(resultId);

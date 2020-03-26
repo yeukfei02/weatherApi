@@ -2,7 +2,7 @@ const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 
 module.exports.checkUserLogin = (req, res) => {
-  let result = '';
+  let result = false;
 
   const token = !_.isEmpty(req.headers.authorization) ? req.headers.authorization.substring(7).trim() : '';
 
@@ -10,7 +10,7 @@ module.exports.checkUserLogin = (req, res) => {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       if (!_.isEmpty(decoded)) {
-        result = token;
+        result = true;
       }
     } catch (e) {
       res.status(400).json({
