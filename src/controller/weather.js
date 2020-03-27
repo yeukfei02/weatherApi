@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const _ = require('lodash');
 const axios = require('axios');
 
+const env = require('dotenv');
+env.config();
+
 const common = require('../common/common');
 const Weather = require('../model/weather');
 
@@ -33,6 +36,11 @@ module.exports.getWeather = async (req, res) => {
       });
     }
   }
+};
+
+module.exports.getWeatherForTest = async cityName => {
+  const result = await getWeather(cityName);
+  return result;
 };
 
 async function getWeatherFromDBById(id) {
