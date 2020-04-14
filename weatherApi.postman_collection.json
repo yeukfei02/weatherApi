@@ -37,7 +37,95 @@
 						},
 						"description": "/signup"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "/signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"test6@test.com\",\n\t\"password\": \"test6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user/signup",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c-a9MIfvdOjYia4V3QmvEkHoosZ6o\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Apr 2020 01:46:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"signup success\"\n}"
+						}
+					]
 				},
 				{
 					"name": "/login",
@@ -67,7 +155,95 @@
 						},
 						"description": "/login"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "/login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "199"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c7-x1Fn9L9mGBY5oAbnLRJU7KUwnoU\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Apr 2020 01:46:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"login success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE1ODY4Mjg3ODN9.rCTPvif6fHlxkGEfkHarWXmztARQ4CrwQ8OF23cQxxI\"\n}"
+						}
+					]
 				}
 			],
 			"description": "user",
@@ -82,18 +258,14 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE1ODM4NDMwODV9.m47CFgXQFUl1bWJyTfwBko5__dsfRnhoQJEpkKY4cNU",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE1ODM4NDMwODV9.m47CFgXQFUl1bWJyTfwBko5__dsfRnhoQJEpkKY4cNU",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -123,7 +295,107 @@
 						},
 						"description": "/get-weather"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "/get-weather",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE1ODM4NDMwODV9.m47CFgXQFUl1bWJyTfwBko5__dsfRnhoQJEpkKY4cNU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/weather/get-weather?cityName=hong kong",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"weather",
+										"get-weather"
+									],
+									"query": [
+										{
+											"key": "cityName",
+											"value": "hong kong"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "634"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27a-OanxdqjGo5btVGvpvpFzh3UIT80\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Apr 2020 01:46:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"getWeather success\",\n    \"result\": {\n        \"weather\": [\n            {\n                \"id\": 801,\n                \"main\": \"Clouds\",\n                \"description\": \"few clouds\",\n                \"icon\": \"02n\"\n            }\n        ],\n        \"base\": [\n            \"stations\"\n        ],\n        \"created_by\": \"2020-03-10T13:07:58.000Z\",\n        \"updated_by\": \"2020-03-10T13:07:58.000Z\",\n        \"_id\": \"5e679139ad7334210021b78a\",\n        \"coord\": {\n            \"lon\": 114.16,\n            \"lat\": 22.29\n        },\n        \"main\": {\n            \"temp\": 294.79,\n            \"feels_like\": 290.02,\n            \"temp_min\": 293.71,\n            \"temp_max\": 296.15,\n            \"pressure\": 1016,\n            \"humidity\": 46\n        },\n        \"visibility\": 10000,\n        \"wind\": {\n            \"speed\": 6.7,\n            \"deg\": 50\n        },\n        \"clouds\": {\n            \"all\": 20\n        },\n        \"dt\": 1583845508,\n        \"sys\": {\n            \"type\": 1,\n            \"id\": 9154,\n            \"country\": \"HK\",\n            \"sunrise\": 1583793407,\n            \"sunset\": 1583836241\n        },\n        \"timezone\": 28800,\n        \"id\": 1819729,\n        \"name\": \"Hong Kong\",\n        \"cod\": 200,\n        \"__v\": 0\n    }\n}"
+						}
+					]
 				}
 			],
 			"description": "weather",
