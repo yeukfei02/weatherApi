@@ -2,6 +2,8 @@
 
 weatherApi by openweathermap
 
+documentation: https://documenter.getpostman.com/view/3827865/SzezdXua?version=latest
+
 ## Requirement:
  - install yarn
  - install node (v12+)
