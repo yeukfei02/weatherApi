@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 const env = require('dotenv');
 env.config();
 
+const mainRoutes = require('./routes/main');
 const userRoutes = require('./routes/user');
 const weatherRoutes = require('./routes/weather');
 
@@ -36,6 +37,7 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(compression());
 
+app.use('/', mainRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/weather', weatherRoutes);
 
