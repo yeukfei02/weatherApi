@@ -13,7 +13,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const { connectDB } = require('./db/db');
-const { isUserLoggedIn } = require('./middleware/middleware');
 
 const mainRoutes = require('./routes/main');
 const userRoutes = require('./routes/user');
@@ -30,7 +29,7 @@ connectDB(app);
 
 app.use('/', mainRoutes);
 app.use('/api/user', userRoutes);
-app.use('/api/weather', isUserLoggedIn, weatherRoutes);
+app.use('/api/weather', weatherRoutes);
 
 app.use((req, res, next) => {
   res.status(404).json({
