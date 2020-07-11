@@ -1,7 +1,7 @@
 {
   "name": "weatherApi",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "app.js",
   "repository": "https://github.com/yeukfei02/weatherApi.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",
   "license": "MIT",
@@ -30,8 +30,8 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "dev": "NODE_ENV=development nodemon ./src/server.js",
-    "start": "NODE_ENV=production nodemon ./src/server.js",
+    "dev": "NODE_ENV=development nodemon ./src/app.js",
+    "start": "NODE_ENV=production nodemon ./src/app.js",
     "test": "jest",
     "lint": "eslint . --quiet --fix"
   },
