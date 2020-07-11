@@ -5,36 +5,32 @@ const axios = require('axios');
 const env = require('dotenv');
 env.config();
 
-const common = require('../common/common');
 const Weather = require('../model/weather');
 
 module.exports.getWeather = async (req, res) => {
   const cityName = req.query.cityName;
 
-  const userLoginStatus = common.checkUserLogin(req, res);
-  if (userLoginStatus) {
-    const result = await getWeather(cityName);
-    if (!_.isEmpty(result)) {
-      const resultId = result.data.id;
-      const weatherFromDB = await getWeatherFromDBById(resultId);
-      if (_.isEmpty(weatherFromDB)) {
-        await addWeatherToDB(result.data);
-        res.status(200).json({
-          message: 'getWeather success',
-          result: result.data,
-        });
-      } else {
-        res.status(200).json({
-          message: 'getWeather success',
-          result: weatherFromDB,
-        });
-      }
+  const result = await getWeather(cityName);
+  if (!_.isEmpty(result)) {
+    const resultId = result.data.id;
+    const weatherFromDB = await getWeatherFromDBById(resultId);
+    if (_.isEmpty(weatherFromDB)) {
+      await addWeatherToDB(result.data);
+      res.status(200).json({
+        message: 'getWeather success',
+        result: result.data,
+      });
     } else {
       res.status(200).json({
         message: 'getWeather success',
-        result: [],
+        result: weatherFromDB,
       });
     }
+  } else {
+    res.status(200).json({
+      message: 'getWeather success',
+      result: [],
+    });
   }
 };
 
