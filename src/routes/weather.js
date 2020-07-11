@@ -3,6 +3,8 @@ const router = express.Router();
 
 const weatherController = require('../controller/weather');
 
-router.get('/get-weather', weatherController.getWeather);
+const { isUserLoggedIn } = require('../middleware/middleware');
+
+router.get('/get-weather', isUserLoggedIn, weatherController.getWeather);
 
 module.exports = router;
