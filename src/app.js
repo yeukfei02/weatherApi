@@ -20,10 +20,10 @@ const weatherRoutes = require('./routes/weather');
 
 app.use(cors());
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 app.use(helmet());
 app.use(compression());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 connectDB(app);
 
