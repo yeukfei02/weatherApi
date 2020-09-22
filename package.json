@@ -1,6 +1,6 @@
 {
   "name": "weatherApi",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "main": "app.js",
   "repository": "https://github.com/yeukfei02/weatherApi.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",
