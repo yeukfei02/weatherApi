@@ -129,6 +129,21 @@
 				},
 				{
 					"name": "/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"console.log(\"jsonData = \", jsonData);",
+									"if (jsonData) {",
+									"    pm.environment.set(\"jwtToken\", jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -246,8 +261,7 @@
 					]
 				}
 			],
-			"description": "user",
-			"protocolProfileBehavior": {}
+			"description": "user"
 		},
 		{
 			"name": "weather",
@@ -258,14 +272,18 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE1ODM4NDMwODV9.m47CFgXQFUl1bWJyTfwBko5__dsfRnhoQJEpkKY4cNU",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -398,9 +416,7 @@
 					]
 				}
 			],
-			"description": "weather",
-			"protocolProfileBehavior": {}
+			"description": "weather"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
