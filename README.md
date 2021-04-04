@@ -5,17 +5,17 @@
 
 weatherApi by openweathermap
 
-documentation: https://documenter.getpostman.com/view/3827865/SzezdXua?version=latest
+documentation: <https://documenter.getpostman.com/view/3827865/SzezdXua?version=latest>
 
-## Requirement:
+## Requirement
 
 - install yarn
 - install node (v12+)
 - install mongodb
 
-## Testing and run:
+## Testing and run
 
-```
+```zsh
 $ yarn
 
 // development
@@ -31,9 +31,9 @@ $ yarn run test
 $ yarn run lint
 ```
 
-## Docker:
+## Docker
 
-```
+```zsh
 // build images and start container in one line
 docker-compose up -d --build
 
