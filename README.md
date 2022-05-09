@@ -1,6 +1,5 @@
 # weatherApi
 
-[![Build Status](https://travis-ci.com/yeukfei02/weatherApi.svg?branch=master)](https://travis-ci.com/yeukfei02/weatherApi)
 [![codecov](https://codecov.io/gh/yeukfei02/weatherApi/branch/master/graph/badge.svg)](https://codecov.io/gh/yeukfei02/weatherApi)
 
 weatherApi by openweathermap
